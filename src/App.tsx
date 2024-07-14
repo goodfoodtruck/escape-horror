@@ -1,6 +1,10 @@
-import { RoomCardComponent } from "./components/RoomCardComponent";
+import { useContext } from "react"
+import { RoomCardComponent } from "./components/RoomCardComponent"
+import { RoomsContext, RoomType } from "./contexts/RoomContext";
 
 function App() {
+  const { rooms } = useContext(RoomsContext)
+
   return (
     <div>
       <div className="flex mt-35" style={{height: "90vh"}}>
@@ -28,30 +32,17 @@ function App() {
           De 2 à 30 joueurs en simultané | Âge : 6 ans + (au moins 1 adulte) | 12 ans +
         </p>
         <div className="flex w-full mt-16 justify-center">
-          <RoomCardComponent
-            imageUrl= "diris.webp"
-            title= "La cave du psychopathe"
-            theme= "Horreur psychologique"
-            difficulty= "Difficile"
-            players={3}
-            duration={60}
-          />
-          <RoomCardComponent
-            imageUrl= "maisona.png"
-            title= "La maison horrifique"
-            theme= "Horreur | Paranormal "
-            difficulty= "Facile"
-            players={4}
-            duration={60}
-          />
-          <RoomCardComponent
-            imageUrl= "ville.webp"
-            title= "Serial-killer en liberté"
-            theme= "Peur | Crime"
-            difficulty= "Moyenne"
-            players={4}
-            duration={60}
-          />
+          {rooms.map((room: RoomType) => (
+            <RoomCardComponent
+              imageUrl={room.imageUrl}
+              title={room.title}
+              price={room.price}
+              theme={room.theme}
+              difficulty={room.difficulty}
+              players={room.players}
+              duration={room.duration}
+            />
+          ))}
         </div>
       </div>
       <div className="mt-36 text-white bg-stone-800 pt-10">

@@ -20,11 +20,11 @@ export const HeaderComponent = () => {
                     Nous contacter
                 </h3>
             </Link>
-            <button>
+            <Link to="/admin">
                 <h3 className="text-xl font-bold hover:text-gray-400">
                     Admin
                 </h3>
-            </button>
+            </Link>
         </div>
     )
 }
