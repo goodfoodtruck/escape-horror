@@ -10,11 +10,6 @@ export const HeaderComponent = () => {
                 </h3>
             </Link>
             <DropdownComponent />
-            <Link to="/booking">
-                <h3 className="text-xl font-bold hover:text-gray-400">
-                    Réserver une room
-                </h3>
-            </Link>
             <Link to="/contact">
                 <h3 className="text-xl font-bold hover:text-gray-400">
                     Nous contacter

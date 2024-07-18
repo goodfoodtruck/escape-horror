@@ -28,6 +28,7 @@ export const AdminPage = () => {
                             difficulty={room.difficulty}
                             players={room.players}
                             duration={room.duration}
+                            schedules={[]}
                         />
                     ))}
                     

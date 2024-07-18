@@ -1,5 +1,11 @@
 import { createContext, ReactNode, useState } from 'react'
 
+function todayAt(hour: number) {
+  const today = new Date()
+  today.setHours(hour)
+  return today
+}
+
 const firstRooms: RoomType[] = [
     {
         title: "Serial-killer en liberté",
@@ -8,7 +14,15 @@ const firstRooms: RoomType[] = [
         duration: 60,
         price: 12,
         players: 4,
-        difficulty: "Moyenne"
+        difficulty: "Moyenne",
+        schedules: [
+          {isTaken: false, time: todayAt(8)},
+          {isTaken: false, time: todayAt(10)},
+          {isTaken: false, time: todayAt(12)},
+          {isTaken: false, time: todayAt(14)},
+          {isTaken: false, time: todayAt(16)},
+          {isTaken: false, time: todayAt(18)},
+        ]
     },
     {
         title: "La maison horrifique",
@@ -17,7 +31,15 @@ const firstRooms: RoomType[] = [
         duration: 60,
         price: 15,
         players: 4,
-        difficulty: "Facile"
+        difficulty: "Facile",
+        schedules: [
+          {isTaken: false, time: todayAt(8)},
+          {isTaken: false, time: todayAt(10)},
+          {isTaken: false, time: todayAt(12)},
+          {isTaken: false, time: todayAt(14)},
+          {isTaken: false, time: todayAt(16)},
+          {isTaken: false, time: todayAt(18)},
+        ]
     },
     {
         title: "La cave du psychopathe",
@@ -26,7 +48,15 @@ const firstRooms: RoomType[] = [
         duration: 60,
         price: 12,
         players: 3,
-        difficulty: "Difficile"
+        difficulty: "Difficile",
+        schedules: [
+          {isTaken: false, time: todayAt(8)},
+          {isTaken: false, time: todayAt(10)},
+          {isTaken: false, time: todayAt(12)},
+          {isTaken: false, time: todayAt(14)},
+          {isTaken: false, time: todayAt(16)},
+          {isTaken: false, time: todayAt(18)},
+        ]
     }
 ]
 
@@ -48,6 +78,13 @@ export const Themes: RoomTheme[] = [
     "Horreur", "Paranormal", "Peur", "Crime", "Horreur psychologique"
 ]
 
+export type Schedule = {
+  time: Date
+  isTaken: boolean
+  email?: string
+  players?: number
+}
+
 export type RoomType = {
     title: string
     imageUrl: string
@@ -56,12 +93,13 @@ export type RoomType = {
     price: number
     players: number
     difficulty: Difficulty
+    schedules: Schedule[]
 }
 
 export type RoomContextType = {
 	rooms: RoomType[]
   updateRooms: (rooms: RoomType[]) => void
-};
+}
 
 export const RoomsContext = createContext<RoomContextType>(undefined!)
 

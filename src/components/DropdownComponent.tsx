@@ -1,7 +1,9 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 import { Link } from "react-router-dom"
+import { RoomsContext } from "../contexts/RoomContext"
 
 export const DropdownComponent = () => {
+    const { rooms } = useContext(RoomsContext)
     const [active, setActive] = useState(false)
 
     return (
@@ -11,24 +13,14 @@ export const DropdownComponent = () => {
             </h3>
             {active && (
                 <ul>
-                    <li>
-                        <Link
-                            className="text-lg font-bold hover:text-gray-400"
-                            to="/room/1">La cave du psychopathe
-                        </Link>
-                    </li>
-                    <li>
-                        <Link
-                            className="text-lg font-bold hover:text-gray-400"
-                            to="/room/2">Maison horrifique
-                        </Link>
-                    </li>
-                    <li>
-                        <Link
-                            className="text-lg font-bold hover:text-gray-400"
-                            to="/room/3">Serial-killer en liberté
-                        </Link>
-                    </li>
+                    {rooms.map((room) => (
+                        <li>
+                            <Link
+                                className="text-lg font-bold hover:text-gray-400"
+                                to={`/room/${rooms.indexOf(room)}`}>{room.title}
+                            </Link>
+                        </li>
+                    ))}
                 </ul>
             )}
         </div>
