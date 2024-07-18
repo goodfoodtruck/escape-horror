@@ -29,7 +29,7 @@ export const CancelBookingComponent = (props: CancelBookingType) => {
                 <div className="m-8">
                     <h4 className="mt-12 text-xl text-white fantasy">{room.title}</h4>
                     {room.schedules.filter(schedule => schedule.isTaken).map((schedule) => (
-                        <div className="flex justify-end w-100">
+                        <div key={schedule.time.getHours()} className="flex justify-end w-100">
                             <div className="bg-slate-300 rounded-lg px-3 py-1 m-2 text-xl">{schedule.email}</div>
                             <p className="text-white px-3 py-1 m-2 text-xl">Nombre de joueurs : </p>
                             <div className="bg-slate-300 rounded-lg px-3 py-1 m-2 text-xl">{schedule.players}</div>

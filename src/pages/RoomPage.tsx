@@ -17,6 +17,7 @@ export const RoomPage = () => {
             <div className="py-36 justify-center">
                 <div className="flex w-full justify-center text-white text-center">
                     <RoomCardComponent
+                        key={rooms.indexOf(room)}
                         imageUrl={room.imageUrl}
                         title={room.title}
                         price={room.price}
@@ -27,7 +28,7 @@ export const RoomPage = () => {
                         schedules={room.schedules}
                     />
                 </div>
-                <BookingComponent
+                <BookingComponent key={index}
                     room={room}
                     rooms={rooms}
                     updateRooms={updateRooms}

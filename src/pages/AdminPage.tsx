@@ -27,6 +27,7 @@ export const AdminPage = () => {
                 <div className="flex w-full mt-16 justify-center text-white text-center">
                     {rooms.map((room) => (
                         <RoomCardComponent
+                            key={room.title}
                             imageUrl={room.imageUrl}
                             title={room.title}
                             price={room.price}

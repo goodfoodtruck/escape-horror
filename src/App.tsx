@@ -34,6 +34,7 @@ function App() {
         <div className="flex w-full mt-16 justify-center">
           {rooms.map((room: RoomType) => (
             <RoomCardComponent
+              key={rooms.indexOf(room)}
               imageUrl={room.imageUrl}
               title={room.title}
               price={room.price}
@@ -41,6 +42,7 @@ function App() {
               difficulty={room.difficulty}
               players={room.players}
               duration={room.duration}
+              schedules={[]}
             />
           ))}
         </div>

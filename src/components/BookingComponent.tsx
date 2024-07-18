@@ -39,7 +39,7 @@ export const BookingComponent = (props: BookingRoomProps) => {
             <h3 className="font-bold text-white text-lg">Cliquez pour réserver un créneaux (en bleu sont ceux disponibles) :</h3>
             <div className="flex">
                 {props.room.schedules.map((schedule) => (
-                    <button disabled={schedule.isTaken} className={`${schedule.isTaken ? "bg-slate-300" : "hover:bg-blue-500 bg-blue-400"} rounded-lg px-3 py-1 m-2 text-xl`} onClick={() => setSelectedSchedule(schedule)}>
+                    <button key={schedule.time.getHours()} disabled={schedule.isTaken} className={`${schedule.isTaken ? "bg-slate-300" : "hover:bg-blue-500 bg-blue-400"} rounded-lg px-3 py-1 m-2 text-xl`} onClick={() => setSelectedSchedule(schedule)}>
                         {schedule.time.getHours()}:00
                     </button>
                 ))}

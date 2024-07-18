@@ -9,7 +9,7 @@ export const FooterComponent = () => {
         <div className="flex justify-around bg-stone-900 text-white p-10">
             <div className="inline-grid">
                 {rooms.map((room) => (
-                    <Link to={`/room/${rooms.indexOf(room)}`}>{room.title}</Link>
+                    <Link key={rooms.indexOf(room)} to={`/room/${rooms.indexOf(room)}`}>{room.title}</Link>
                 ))}
             </div>
             <div className="">
