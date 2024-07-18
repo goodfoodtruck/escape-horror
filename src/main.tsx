@@ -4,7 +4,6 @@ import './styles/index.css'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import { HomePage } from './pages/HomePage'
 import { ContactPage } from './pages/ContactPage'
-import { BookingPage } from './pages/BookingPage'
 import { RoomPage } from './pages/RoomPage'
 import { AdminPage } from './pages/AdminPage'
 import { RoomsProvider } from './contexts/RoomContext'
@@ -21,10 +20,6 @@ const router = createBrowserRouter([
   {
     path: "/contact",
     element: <ContactPage />
-  },
-  {
-    path: "/booking",
-    element: <BookingPage />
   },
   {
     path: "/admin",
