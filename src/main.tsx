@@ -7,6 +7,7 @@ import { ContactPage } from './pages/ContactPage'
 import { RoomPage } from './pages/RoomPage'
 import { AdminPage } from './pages/AdminPage'
 import { RoomsProvider } from './contexts/RoomContext'
+import { AdminProvider } from './contexts/AdminContext'
 
 const router = createBrowserRouter([
   {
@@ -31,7 +32,9 @@ const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
   <React.StrictMode>
     <RoomsProvider>
-      <RouterProvider router={router} />
+      <AdminProvider>
+        <RouterProvider router={router} />
+      </AdminProvider>
     </RoomsProvider>
   </React.StrictMode>
 )

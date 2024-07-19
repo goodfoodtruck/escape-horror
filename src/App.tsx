@@ -1,13 +1,16 @@
 import { useContext } from "react"
 import { RoomCardComponent } from "./components/RoomCardComponent"
 import { RoomsContext, RoomType } from "./contexts/RoomContext";
+import { AdminContext } from "./contexts/AdminContext";
 
 function App() {
+  const { isAdmin, setIsAdmin } = useContext(AdminContext)
   const { rooms } = useContext(RoomsContext)
 
   return (
     <div>
       <div className="flex mt-35" style={{height: "90vh"}}>
+        <button className="hover:bg-blue-500 bg-blue-400 rounded-lg px-3 py-1 m-2 text-xl" onClick={() => setIsAdmin(!isAdmin)}>Mode admin</button>
         <img className="w-1/2 p-5 object-contain" src="Characters.webp" />
         <div className="w-full p-5 self-center text-white">
           <h1 className="fantasy text-5xl my-5 font-bold">La maison horrifique</h1>
