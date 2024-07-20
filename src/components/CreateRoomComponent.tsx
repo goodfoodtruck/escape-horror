@@ -27,12 +27,12 @@ export const CreateRoomComponent = (props: RoomContextType) => {
     return (
         <div className="bg-slate-700 p-6 rounded-lg max-w-lg mx-auto mt-10">
             <div className="mb-4">
-                <label className="block text-white text-sm font-bold mb-2">Theme: {theme}</label>
+                <label className={`block text-${theme} text-sm font-bold mb-2`}>Theme: {theme}</label>
                 <div className="flex flex-wrap gap-2">
                     {Themes.map((theme: RoomTheme) => (
                         <button 
                             key={theme}
-                            className="btn bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                            className={`btn bg-blue-500 hover:bg-blue-700 text-${theme} font-bold py-2 px-4 rounded`}
                             onClick={() => setTheme(theme)}
                         >
                             {theme}
@@ -41,7 +41,7 @@ export const CreateRoomComponent = (props: RoomContextType) => {
                 </div>
             </div>
             <div className="mb-4">
-                <label className="block text-white text-sm font-bold mb-2">Titre:</label>
+                <label className={`block text-${theme} text-sm font-bold mb-2`}>Titre:</label>
                 <input 
                     type="text" 
                     value={title} 
@@ -51,7 +51,7 @@ export const CreateRoomComponent = (props: RoomContextType) => {
                 />
             </div>
             <div className="mb-4">
-                <label className="block text-white text-sm font-bold mb-2">Durée:</label>
+                <label className={`block text-${theme} text-sm font-bold mb-2`}>Durée:</label>
                 <input 
                     type="number" 
                     value={duration} 
@@ -61,7 +61,7 @@ export const CreateRoomComponent = (props: RoomContextType) => {
                 />
             </div>
             <div className="mb-4">
-                <label className="block text-white text-sm font-bold mb-2">Prix:</label>
+                <label className={`block text-${theme} text-sm font-bold mb-2`}>Prix:</label>
                 <input 
                     type="number" 
                     value={price}
@@ -71,7 +71,7 @@ export const CreateRoomComponent = (props: RoomContextType) => {
                 />
             </div>
             <div className="mb-4">
-                <label className="block text-white text-sm font-bold mb-2">Nb de joueurs:</label>
+                <label className={`block text-${theme} text-sm font-bold mb-2`}>Nb de joueurs:</label>
                 <input 
                     type="number" 
                     value={players} 
@@ -81,12 +81,12 @@ export const CreateRoomComponent = (props: RoomContextType) => {
                 />
             </div>
             <div className="mb-4">
-                <label className="block text-white text-sm font-bold mb-2">Difficulté: {difficulty}</label>
+                <label className={`block text-${theme} text-sm font-bold mb-2`}>Difficulté: {difficulty}</label>
                 <div className="flex flex-wrap gap-2">
                     {Difficulties.map((difficulty: Difficulty) => (
                         <button 
                             key={difficulty}
-                            className="btn bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+                            className={`btn bg-green-500 hover:bg-green-700 text-${theme} font-bold py-2 px-4 rounded`}
                             onClick={() => setDifficulty(difficulty)}
                         >
                             {difficulty}
@@ -95,7 +95,7 @@ export const CreateRoomComponent = (props: RoomContextType) => {
                 </div>
             </div>
             <button 
-                className="btn bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded w-full"
+                className={`btn bg-red-500 hover:bg-red-700 text-${theme} font-bold py-2 px-4 rounded w-full`}
                 onClick={handleSubmit}
             >
                 + Créer une room

@@ -15,7 +15,7 @@ export const RoomPage = () => {
         <div>
             <HeaderComponent />
             <div className="py-36 justify-center">
-                <div className="flex w-full justify-center text-white text-center">
+                <div className={`flex w-full justify-center`}>
                     <RoomCardComponent
                         key={rooms.indexOf(room)}
                         imageUrl={room.imageUrl}

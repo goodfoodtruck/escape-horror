@@ -1,18 +1,17 @@
 import { useContext } from "react"
 import { RoomCardComponent } from "./components/RoomCardComponent"
 import { RoomsContext, RoomType } from "./contexts/RoomContext";
-import { AdminContext } from "./contexts/AdminContext";
+import { ThemeContext } from "./contexts/ThemeContext";
 
 function App() {
-  const { isAdmin, setIsAdmin } = useContext(AdminContext)
+  const { theme } = useContext(ThemeContext)
   const { rooms } = useContext(RoomsContext)
 
   return (
     <div>
       <div className="flex mt-35" style={{height: "90vh"}}>
-        <button className="hover:bg-blue-500 bg-blue-400 rounded-lg px-3 py-1 m-2 text-xl" onClick={() => setIsAdmin(!isAdmin)}>Mode admin</button>
         <img className="w-1/2 p-5 object-contain" src="Characters.webp" />
-        <div className="w-full p-5 self-center text-white">
+        <div className={`w-full p-5 self-center text-${theme}`}>
           <h1 className="fantasy text-5xl my-5 font-bold">La maison horrifique</h1>
           <p>
             En équipe de 2 à 6 joueurs, vous devez trouver le moyen de vous échapper.
@@ -27,7 +26,7 @@ function App() {
           </p>
         </div>
       </div>
-      <div className="mt-20 text-center text-white">
+      <div className={`mt-20 text-center text-${theme}`}>
         <h1 className="fantasy text-5xl font-bold">NOS ESCAPE ROOMS</h1>
         <p className="mt-5 mx-24">
           En famille ou entre amis, de la région ou en visite à Nice, particuliers ou professionnels, venez relever les défis de nos 3 salles ! 
@@ -50,7 +49,7 @@ function App() {
           ))}
         </div>
       </div>
-      <div className="mt-36 text-white bg-stone-800 pt-10">
+      <div className={`mt-36 text-${theme} pt-10`}>
         <h1 className="fantasy text-5xl text-center font-bold">NOTRE EQUIPE</h1>
         <div className="flex " style={{height: "80vh"}}>
           <p className="w-1/2 pl-10 self-center">

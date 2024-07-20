@@ -3,7 +3,7 @@ import { createContext, ReactNode, useState } from "react"
 type AdminContext = {
     isAdmin: boolean
     setIsAdmin: (isAdmin: boolean) => void
-  }
+}
 
 export const AdminContext = createContext<AdminContext>(undefined!)
 

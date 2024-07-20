@@ -8,6 +8,7 @@ import { RoomPage } from './pages/RoomPage'
 import { AdminPage } from './pages/AdminPage'
 import { RoomsProvider } from './contexts/RoomContext'
 import { AdminProvider } from './contexts/AdminContext'
+import { ThemeProvider } from './contexts/ThemeContext'
 
 const router = createBrowserRouter([
   {
@@ -33,7 +34,9 @@ root.render(
   <React.StrictMode>
     <RoomsProvider>
       <AdminProvider>
-        <RouterProvider router={router} />
+        <ThemeProvider>
+            <RouterProvider router={router} />
+        </ThemeProvider>
       </AdminProvider>
     </RoomsProvider>
   </React.StrictMode>

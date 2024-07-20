@@ -1,4 +1,6 @@
+import { useContext } from "react"
 import { RoomType, Schedule } from "../contexts/RoomContext"
+import { ThemeContext } from "../contexts/ThemeContext"
 
 type CancelBookingType = {
     roomsScheduled: RoomType[]
@@ -7,6 +9,7 @@ type CancelBookingType = {
 }
 
 export const CancelBookingComponent = (props: CancelBookingType) => {
+    const { theme } = useContext(ThemeContext)
 
     const cancelSchedule = (roomScheduled: RoomType, scheduleCanceled: Schedule) => {
         const updatedRooms = props.rooms.map((room) => {
@@ -27,13 +30,13 @@ export const CancelBookingComponent = (props: CancelBookingType) => {
         <div className="w-fit">
             {props.roomsScheduled.map((room) => (
                 <div className="m-8">
-                    <h4 className="mt-12 text-xl text-white fantasy">{room.title}</h4>
+                    <h4 className={`mt-12 text-xl text-${theme} fantasy`}>{room.title}</h4>
                     {room.schedules.filter(schedule => schedule.isTaken).map((schedule) => (
                         <div key={schedule.time.getHours()} className="flex justify-end w-100">
                             <div className="bg-slate-300 rounded-lg px-3 py-1 m-2 text-xl">{schedule.email}</div>
-                            <p className="text-white px-3 py-1 m-2 text-xl">Nombre de joueurs : </p>
+                            <p className={`text-${theme} px-3 py-1 m-2 text-xl`}>Nombre de joueurs : </p>
                             <div className="bg-slate-300 rounded-lg px-3 py-1 m-2 text-xl">{schedule.players}</div>
-                            <p className="text-white px-3 py-1 m-2 text-xl">Horaire : </p>
+                            <p className={`text-${theme} px-3 py-1 m-2 text-xl`}>Horaire : </p>
                             <div className="bg-slate-300 rounded-lg px-3 py-1 m-2 text-xl">
                                 {schedule.time.getHours()}:00
                             </div>

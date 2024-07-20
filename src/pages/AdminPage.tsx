@@ -5,9 +5,11 @@ import { RoomsContext, RoomType } from "../contexts/RoomContext"
 import { RoomCardComponent } from "../components/RoomCardComponent"
 import { CreateRoomComponent } from "../components/CreateRoomComponent"
 import { CancelBookingComponent } from "../components/CancelBookingComponent"
+import { ThemeContext } from "../contexts/ThemeContext"
 
 
 export const AdminPage = () => {
+    const { theme } = useContext(ThemeContext)
     const { rooms, updateRooms } = useContext(RoomsContext)
     const [roomsScheduled, setRoomsScheduled] = useState<RoomType[]>([])
 
@@ -19,12 +21,12 @@ export const AdminPage = () => {
         <div className="overflow-auto">
             <HeaderComponent />
             <div className="my-32">
-                <h3 className="text-3xl text-white font-bold mx-8">Créer ou modifier une escape room : </h3>
+                <h3 className={`text-3xl text-${theme} font-bold mx-8`}>Créer ou modifier une escape room : </h3>
                 <CreateRoomComponent
                     rooms={rooms}
                     updateRooms={updateRooms}
                 />
-                <div className="flex w-full mt-16 justify-center text-white text-center">
+                <div className={`flex w-full mt-16 justify-center text-${theme} text-center`}>
                     {rooms.map((room) => (
                         <RoomCardComponent
                             key={room.title}
@@ -39,7 +41,7 @@ export const AdminPage = () => {
                         />
                     ))}
                 </div>
-                <h3 className="mt-12 text-3xl text-white font-bold mx-8">Les réservations : </h3>
+                <h3 className={`mt-12 text-3xl text-${theme} font-bold mx-8`}>Les réservations : </h3>
                 <CancelBookingComponent
                     roomsScheduled={roomsScheduled}
                     rooms={rooms}

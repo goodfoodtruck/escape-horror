@@ -64,8 +64,6 @@ body {
   /* 1 */
   line-height: inherit;
   /* 2 */
-  background-color: #211F1F;
-  background-image: url("/public/Background.png");
   background-repeat: no-repeat;
   background-size: 100vw 100vh;
 }

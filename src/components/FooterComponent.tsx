@@ -1,12 +1,14 @@
 import { useContext } from "react"
 import { Link } from "react-router-dom"
 import { RoomsContext } from "../contexts/RoomContext"
+import { ThemeContext } from "../contexts/ThemeContext"
 
 export const FooterComponent = () => {
+    const {theme} = useContext(ThemeContext)
     const {rooms} = useContext(RoomsContext)
 
     return (
-        <div className="flex justify-around bg-stone-900 text-white p-10">
+        <div className={`flex justify-around text-${theme} p-10`}>
             <div className="inline-grid">
                 {rooms.map((room) => (
                     <Link key={rooms.indexOf(room)} to={`/room/${rooms.indexOf(room)}`}>{room.title}</Link>
