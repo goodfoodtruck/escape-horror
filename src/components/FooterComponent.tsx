@@ -15,7 +15,8 @@ export const FooterComponent = () => {
                 ))}
             </div>
             <div className="">
-                <Link to="/contact">Contactez-nous !</Link>
+                <Link to="/contact">Contactez-nous !</Link><br></br>
+                <Link to="/legal">Mentions légales</Link>
                 <br></br>
                 <span>Appelez au 06 00 00 00 00</span>
                 <br></br>
