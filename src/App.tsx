@@ -33,7 +33,7 @@ function App() {
           L’escape game est l’activité idéale pour se réunir autour d’une activité originale et créer des souvenirs mémorables. 
           De 2 à 30 joueurs en simultané | Âge : 6 ans + (au moins 1 adulte) | 12 ans +
         </p>
-        <div className="flex w-full mt-16 justify-center">
+        <div className="flex flex-wrap w-full mt-16 justify-center">
           {rooms.map((room: RoomType) => (
             <RoomCardComponent
               key={rooms.indexOf(room)}

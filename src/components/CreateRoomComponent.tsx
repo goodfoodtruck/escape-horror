@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Themes, RoomTheme, Difficulties, Difficulty, RoomType, RoomContextType } from "../contexts/RoomContext"
+import { todayAt, Themes, RoomTheme, Difficulties, Difficulty, RoomType, RoomContextType } from "../contexts/RoomContext"
 
 export const CreateRoomComponent = (props: RoomContextType) => {
 
@@ -19,7 +19,15 @@ export const CreateRoomComponent = (props: RoomContextType) => {
             duration,
             price,
             players,
-            difficulty
+            difficulty,
+            schedules: [
+                {isTaken: false, time: todayAt(8)},
+                {isTaken: false, time: todayAt(10)},
+                {isTaken: false, time: todayAt(12)},
+                {isTaken: false, time: todayAt(14)},
+                {isTaken: false, time: todayAt(16)},
+                {isTaken: false, time: todayAt(18)},
+              ]
         }
         props.updateRooms([...props.rooms, newRoom])
     }

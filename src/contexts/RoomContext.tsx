@@ -1,6 +1,6 @@
 import { createContext, ReactNode, useState } from 'react'
 
-function todayAt(hour: number) {
+export function todayAt(hour: number) {
   const today = new Date()
   today.setHours(hour)
   return today

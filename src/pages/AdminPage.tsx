@@ -26,7 +26,7 @@ export const AdminPage = () => {
                     rooms={rooms}
                     updateRooms={updateRooms}
                 />
-                <div className={`flex w-full mt-16 justify-center text-${theme} text-center`}>
+                <div className={`flex flex-wrap w-full mt-16 justify-center text-${theme} text-center`}>
                     {rooms.map((room) => (
                         <RoomCardComponent
                             key={room.title}
