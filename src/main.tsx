@@ -9,6 +9,7 @@ import { AdminPage } from './pages/AdminPage'
 import { RoomsProvider } from './contexts/RoomContext'
 import { AdminProvider } from './contexts/AdminContext'
 import { ThemeProvider } from './contexts/ThemeContext'
+import { LegalPage } from './pages/LegalPage'
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
   {
     path: "/admin",
     element: <AdminPage />
+  },
+  {
+    path: "/legal",
+    element: <LegalPage />
   }
 ])
 
